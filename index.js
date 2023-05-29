@@ -31,6 +31,7 @@ async function run() {
 
     const menuCollection = client.db("bistroDB").collection("menu");
     const reviewsCollection = client.db("bistroDB").collection("reviews");
+    const cartCollection = client.db("bistroDB").collection("cart");
 
     app.get("/menu", async (req, res) => {
       const result = await menuCollection.find().toArray();
@@ -58,3 +59,16 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`the bistro boss is running on the ${port}`);
 });
+
+/*
+*------------------------------
+     NAMING CONVENTION
+*-------------------------------------
+*Users: userCollection
+*app.get("/users")
+*app.get("/users/:id")
+*app.post("/users")
+*app.patch("/users/:id") for Update particular data.or single user data
+*app.put("/users/:id")if not available the user it will create new data for the user
+*app.delete("/users/:id")
+*/
